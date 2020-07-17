@@ -8,7 +8,7 @@
     "@fortawesome/free-solid-svg-icons": "5.12.0",
     "@fortawesome/react-fontawesome": "0.1.8",
     "@openzeppelin/contracts": "3.0.1",
-    "@statechannels/channel-client": "0.0.2",
+    "@statechannels/channel-client": "0.0.4",
     "@statechannels/channel-provider": "0.0.4",
     "@statechannels/nitro-protocol": "0.1.5",
     "ajv": "6.11.0",

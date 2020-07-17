@@ -17,7 +17,7 @@
     "@rimble/connection-banner": "1.2.3",
     "@rimble/network-indicator": "1.2.3",
     "@sentry/browser": "5.15.5",
-    "@statechannels/channel-client": "0.0.2",
+    "@statechannels/channel-client": "0.0.4",
     "@statechannels/nitro-protocol": "0.1.5",
     "ajv": "6.11.0",
     "aphrodite": "2.2.2",

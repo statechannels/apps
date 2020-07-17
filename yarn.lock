@@ -4481,10 +4481,10 @@
   dependencies:
     type-detect "4.0.8"
 
-"@statechannels/channel-client@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.npmjs.org/@statechannels/channel-client/-/channel-client-0.0.2.tgz#ea4eefe28b2954456218281174c82f7885ec06dd"
-  integrity sha512-UV3C3H8uGFXzSl+mfaYkVLBLRpbI694qHvR6UwPxMvxrUJhnAYg4RoUBIm4w5/Ehg/igdrcYdUcrNkwbm8O1nA==
+"@statechannels/channel-client@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/@statechannels/channel-client/-/channel-client-0.0.4.tgz#47f9745836876edcc75573706ef6f99364074ae2"
+  integrity sha512-GEqyiaATDtSfgF/YeYBOcHt5GFxwbGzoLf8CBD1YxHeYvihMyngBBDYSyEUbDldxnn7asI0sCoTN3y3X1fhCiA==
   dependencies:
     "@statechannels/channel-provider" "*"
     "@statechannels/client-api-schema" "0.0.1"
