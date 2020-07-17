@@ -4481,13 +4481,13 @@
   dependencies:
     type-detect "4.0.8"
 
-"@statechannels/channel-client@0.0.4":
-  version "0.0.4"
-  resolved "https://registry.npmjs.org/@statechannels/channel-client/-/channel-client-0.0.4.tgz#47f9745836876edcc75573706ef6f99364074ae2"
-  integrity sha512-GEqyiaATDtSfgF/YeYBOcHt5GFxwbGzoLf8CBD1YxHeYvihMyngBBDYSyEUbDldxnn7asI0sCoTN3y3X1fhCiA==
+"@statechannels/channel-client@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.npmjs.org/@statechannels/channel-client/-/channel-client-0.0.5.tgz#432a1b5506bbc8581d5a5a2d370f665e2538c012"
+  integrity sha512-k3xEv5LzZEQxIUHWZwPtephj8L3nY2s5rb1ZuNT0f0aj+5NRv7JJqwTzKbCe1KokHQu45n3SLNyOB/ZAuh0M6A==
   dependencies:
     "@statechannels/channel-provider" "*"
-    "@statechannels/client-api-schema" "0.0.1"
+    "@statechannels/client-api-schema" "0.0.3"
     ethers "4.0.45"
     eventemitter3 "4.0.0"
 
@@ -4507,13 +4507,6 @@
     eventemitter3 "4.0.0"
     guid-typescript "1.0.9"
     pino "6.2.0"
-
-"@statechannels/client-api-schema@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/@statechannels/client-api-schema/-/client-api-schema-0.0.1.tgz#fa6bc51b9fa411981100eeddd771334aa4a0c682"
-  integrity sha512-IXx/gLfs7jEOkMo8azWRkuyN1u1Wt6+xmJcE9spqKZ1Owh2rTicJn9MkxMqUGm3Nyi+plaumq3tVuwFgXLM4fQ==
-  dependencies:
-    ajv "6.11.0"
 
 "@statechannels/client-api-schema@0.0.3":
   version "0.0.3"
