@@ -195,7 +195,7 @@ jobs:
             - node_modules
       - upload_logs:
           file: prepare-stats
-      - notify_slack
+      # TODO - notify_slack
 
   build:
     <<: *defaults
@@ -218,7 +218,7 @@ jobs:
             fi
       - upload_logs:
           file: build-stats
-      - notify_slack
+      # TODO - notify_slack
 
   test:
     <<: *defaults
@@ -245,7 +245,7 @@ jobs:
           package: rps
       - upload_gas_report:
           package: nitro-protocol
-      - notify_slack
+      # TODO - notify_slack
 
   integration-test-rps:
     <<: *integration_test_settings
@@ -302,7 +302,7 @@ jobs:
           at: /home/circleci/project
       - run: yarn build:netlify:incremental
       - run: yarn release:netlify:incremental
-      - notify_slack
+      # TODO - notify_slack
 
   release-master:
     <<: *defaults
@@ -316,7 +316,7 @@ jobs:
       - run: yarn release:netlify
       - upload_logs:
           file: netlify-stats
-      - notify_slack
+      # TODO - notify_slack
 
   release-netlify-production:
     <<: *defaults
@@ -333,7 +333,7 @@ jobs:
       - run: yarn release:netlify:production
       - upload_logs:
           file: netlify-stats
-      - notify_slack
+      # TODO - notify_slack
 
   release-hub-production:
     working_directory: /home/circleci/project
@@ -394,7 +394,7 @@ jobs:
             git checkout deploy
             git rebase origin/master
             git push origin deploy
-      - notify_slack
+      # TODO - notify_slack
 
 workflows:
   statechannels:
