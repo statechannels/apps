@@ -59,4 +59,3 @@ junit.xml
 
 ganache-deployments.json
 ganache-deployments*.json
-*.lock
