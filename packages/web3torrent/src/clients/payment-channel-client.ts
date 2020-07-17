@@ -385,7 +385,7 @@ export class PaymentChannelClient {
 
   channelState(channelId): Observable<ChannelState> {
     const newStates = this.channelClient.channelState.pipe(
-      filter(cr => cr.channelId === channelId),
+      filter((cr: any) => cr.channelId === channelId),
       map(convertToChannelState)
     );
 
