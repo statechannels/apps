@@ -64,9 +64,11 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
+    ...baseConfig.extends
   ],
   rules: {
+    ...baseConfig.rules,
     ...leftoverTsLintRules,
     ...jestViolations,
     ...otherViolations,
