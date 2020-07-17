@@ -4499,6 +4499,15 @@
     debug "4.1.1"
     eventemitter3 "4.0.0"
 
+"@statechannels/channel-provider@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/@statechannels/channel-provider/-/channel-provider-0.0.4.tgz#9a0c635283ddcc12e6080948d761b5b585cf3bbd"
+  integrity sha512-bVUxPTq38WqftpaNHmvyG9flM8kviqP6/SzGl04497FhlwtbRF4UTGToouzRse76uLWMULe9GEEcAsT1dxSxrg==
+  dependencies:
+    eventemitter3 "4.0.0"
+    guid-typescript "1.0.9"
+    pino "6.2.0"
+
 "@statechannels/client-api-schema@0.0.1":
   version "0.0.1"
   resolved "https://registry.npmjs.org/@statechannels/client-api-schema/-/client-api-schema-0.0.1.tgz#fa6bc51b9fa411981100eeddd771334aa4a0c682"
@@ -17786,6 +17795,11 @@ gud@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/gud/-/gud-1.0.0.tgz#a489581b17e6a70beca9abe3ae57de7a499852c0"
   integrity sha512-zGEOVKFM5sVPPrYs7J5/hYEw2Pof8KCyOwyhG8sAF26mCAeUFAcYPu1mwB7hhpIP29zOIBaDqwuHdLp0jvZXjw==
+
+guid-typescript@1.0.9:
+  version "1.0.9"
+  resolved "https://registry.npmjs.org/guid-typescript/-/guid-typescript-1.0.9.tgz#e35f77003535b0297ea08548f5ace6adb1480ddc"
+  integrity sha512-Y8T4vYhEfwJOTbouREvG+3XDsjr8E3kIr7uf+JZ0BYloFsttiHU0WfvANVsR7TxNUJa/WpCnw/Ino/p+DeBhBQ==
 
 gzip-size@5.1.1:
   version "5.1.1"

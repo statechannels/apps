@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "author": "snario <liam@l4v.io>",
   "devDependencies": {
-    "@statechannels/channel-provider": "*",
+    "@statechannels/channel-provider": "0.0.4",
     "@statechannels/client-api-schema": "0.0.2",
     "@statechannels/devtools": "0.1.4",
     "@types/eslint": "6.1.7",
