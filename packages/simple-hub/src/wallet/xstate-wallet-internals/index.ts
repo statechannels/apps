@@ -1,4 +1,4 @@
-import { utils, BigNumber } from 'ethers';
+import {utils, BigNumber} from 'ethers';
 import _ from 'lodash';
 import {
   SignedState as SignedStateWire,
@@ -15,11 +15,10 @@ import {
   signState as signNitroState,
   AllocationItem as NitroAllocationItem,
   Outcome as NitroOutcome,
-  State as NitroState,
-  getStateSignerAddress as getNitroSignerAddress
+  State as NitroState
 } from '@statechannels/nitro-protocol';
-import { splitSignature } from '@ethersproject/bytes';
-import { log } from '../../logger';
+
+import {log} from '../../logger';
 
 function bnToPaddedHexString(bn: BigNumber, padding = 32): string {
   return utils.hexZeroPad(bn.toHexString(), padding);
@@ -124,36 +123,9 @@ export interface Message {
   signedStates?: SignedState[];
   objectives?: Objective[];
 }
-function toNitroState(state: State): NitroState {
-  const { channelNonce, participants, chainId } = state;
-  const channel = { channelNonce, chainId, participants: participants.map(x => x.signingAddress) };
 
-  return {
-    ..._.pick(state, 'appData', 'isFinal', 'challengeDuration', 'appDefinition', 'turnNum'),
-    outcome: convertToNitroOutcome(state.outcome),
-    channel
-  };
-}
-function getSignerAddress(state: State, signature: string): string {
-  const nitroState = toNitroState(state);
-  return getNitroSignerAddress({ state: nitroState, signature: splitSignature(signature) });
-}
 function deserializeState(state: SignedStateWire): SignedState {
-  const stateWithoutChannelId = { ...state };
-  delete stateWithoutChannelId.channelId;
-  const deserializedState = {
-    ...stateWithoutChannelId,
-    outcome: deserializeOutcome(state.outcome),
-    participants: stateWithoutChannelId.participants
-  };
-
-  return {
-    ...deserializedState,
-    signatures: state.signatures.map(sig => ({
-      signature: sig,
-      signer: getSignerAddress(deserializedState, sig)
-    }))
-  };
+  return {..._.omit(state, 'channelId'), outcome: deserializeOutcome(state.outcome)};
 }
 
 function deserializeOutcome(outcome: OutcomeWire): Outcome {
@@ -185,7 +157,7 @@ function deserializeOutcome(outcome: OutcomeWire): Outcome {
 }
 
 function deserializeAllocation(allocation: AllocationWire): SimpleAllocation {
-  const { assetHolderAddress, allocationItems } = allocation;
+  const {assetHolderAddress, allocationItems} = allocation;
   return {
     type: 'SimpleAllocation',
     assetHolderAddress,
@@ -194,8 +166,8 @@ function deserializeAllocation(allocation: AllocationWire): SimpleAllocation {
 }
 
 function deserializeAllocationItem(allocationItem: AllocationItemWire): AllocationItem {
-  const { amount, destination } = allocationItem;
-  return { destination, amount: BigNumber.from(amount) };
+  const {amount, destination} = allocationItem;
+  return {destination, amount: BigNumber.from(amount)};
 }
 
 function serializeOutcome(outcome: Outcome): OutcomeWire {
@@ -224,27 +196,23 @@ function serializeSimpleAllocation(allocation: SimpleAllocation): AllocationWire
 }
 
 function serializeAllocationItem(allocationItem: AllocationItem): AllocationItemWire {
-  const { destination, amount } = allocationItem;
-  return { destination, amount: bnToPaddedHexString(amount) };
+  const {destination, amount} = allocationItem;
+  return {destination, amount: bnToPaddedHexString(amount)};
 }
 
 function serializeState(state: SignedState): SignedStateWire {
-  return {
-    ...state,
-    outcome: serializeOutcome(state.outcome),
-    channelId: calculateChannelId(state)
-  };
+  return {...state, outcome: serializeOutcome(state.outcome), channelId: calculateChannelId(state)};
 }
 
 export function calculateChannelId(channelConstants: ChannelConstants): string {
-  const { chainId, channelNonce, participants } = channelConstants;
+  const {chainId, channelNonce, participants} = channelConstants;
   const addresses = participants.map(p => p.signingAddress);
-  return getChannelId({ chainId, channelNonce, participants: addresses });
+  return getChannelId({chainId, channelNonce, participants: addresses});
 }
 
 export function deserializeMessage(message: WireMessage): Message {
   const signedStates = (message.data.signedStates || []).map(ss => deserializeState(ss));
-  const { objectives } = message.data;
+  const {objectives} = message.data;
   return {
     signedStates,
     objectives
@@ -253,11 +221,11 @@ export function deserializeMessage(message: WireMessage): Message {
 
 export function serializeMessage(message: Message, recipient: string, sender: string): WireMessage {
   const signedStates = (message.signedStates || []).map(ss => serializeState(ss));
-  const { objectives } = message;
+  const {objectives} = message;
   return {
     recipient,
     sender,
-    data: { signedStates, objectives }
+    data: {signedStates, objectives}
   };
 }
 
@@ -295,15 +263,39 @@ function convertToNitroAllocationItems(allocationItems: AllocationItem[]): Nitro
   }));
 }
 
+function toNitroState(state: State): NitroState {
+  const {
+    challengeDuration,
+    appDefinition,
+    channelNonce,
+    participants,
+    chainId,
+    appData,
+    turnNum,
+    isFinal
+  } = state;
+  const channel = {channelNonce, chainId, participants: participants.map(x => x.signingAddress)};
+
+  return {
+    challengeDuration,
+    appDefinition,
+    appData,
+    outcome: convertToNitroOutcome(state.outcome),
+    channel,
+    turnNum,
+    isFinal
+  };
+}
+
 export function signState(state: State, privateKey: string): string {
   const nitroState = toNitroState(state);
-  const { signature } = signNitroState(nitroState, privateKey);
+  const {signature} = signNitroState(nitroState, privateKey);
   return utils.joinSignature(signature);
 }
 
 export const firstState = (
   outcome: Outcome,
-  { channelNonce, chainId, challengeDuration, appDefinition, participants }: ChannelConstants,
+  {channelNonce, chainId, challengeDuration, appDefinition, participants}: ChannelConstants,
   appData?: string
 ): State => ({
   appData: appData || '0x',
