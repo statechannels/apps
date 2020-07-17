@@ -4567,10 +4567,10 @@
     "@openzeppelin/contracts" "3.0.1"
     ethers "4.0.45"
 
-"@statechannels/wire-format@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.npmjs.org/@statechannels/wire-format/-/wire-format-0.0.5.tgz#14f335cb83f6003cf16d7f2866e8adc15ac37426"
-  integrity sha512-Wl6Y+8eJGSIO4/i+ZUZE27P9qKw2nMivnVSwBjg7cyfx6OW7oH7TWQ94TphSmtuYr1o2OP2u7NXR324AiJSsbQ==
+"@statechannels/wire-format@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.npmjs.org/@statechannels/wire-format/-/wire-format-0.0.7.tgz#288fa4bdb93df3ea3ff762253106abb9d2a1aaef"
+  integrity sha512-D9rFe079FNj5kKil+jj8yAMnrWYAgIZ7UhfJ5JR3GFtHc65jTkMzFjuZUvi+1rJPMRMF0uPWlefDnvd4ulHTYA==
   dependencies:
     ajv "6.11.0"
 
