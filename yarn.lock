@@ -4515,10 +4515,10 @@
   dependencies:
     ajv "6.11.0"
 
-"@statechannels/client-api-schema@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.npmjs.org/@statechannels/client-api-schema/-/client-api-schema-0.0.2.tgz#8888b844af0667ab8cc29b9eed0a7e9d1f426ca1"
-  integrity sha512-SqB+O7ElM9WE+sgV9A85ZVhPrc9Y9jnYH/4okZQP3Sk/K2NMNecVYpFn/CpBdGVRRkHN5li9ueXRkaHya8UzjA==
+"@statechannels/client-api-schema@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.npmjs.org/@statechannels/client-api-schema/-/client-api-schema-0.0.3.tgz#e235e263bb8d981249f10ad46441dfa7d2a20caf"
+  integrity sha512-C8/sDn0a+75ieN26ACni58tZ2lzHNbCW5S/Kp32mtxmDY4d8G+lbjC9uIdc6vuNRs11KD7RuMPxP4ZBd6z2KLw==
   dependencies:
     ajv "6.11.0"
 

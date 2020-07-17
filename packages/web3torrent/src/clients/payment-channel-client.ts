@@ -336,7 +336,6 @@ export class PaymentChannelClient {
   async updateChannel(channelId: string, peers: Peers): Promise<ChannelState> {
     const channelResult = await this.channelClient.updateChannel(
       channelId,
-      formatParticipants(peers),
       formatAllocations(peers),
       APP_DATA
     );
@@ -385,7 +384,7 @@ export class PaymentChannelClient {
 
   channelState(channelId): Observable<ChannelState> {
     const newStates = this.channelClient.channelState.pipe(
-      filter((cr: any) => cr.channelId === channelId),
+      filter(cr => cr.channelId === channelId),
       map(convertToChannelState)
     );
 
