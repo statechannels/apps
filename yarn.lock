@@ -4481,10 +4481,10 @@
   dependencies:
     type-detect "4.0.8"
 
-"@statechannels/channel-client@*":
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/@statechannels/channel-client/-/channel-client-0.0.1.tgz#b59c75943d52bd017ec5fd9560dd09273227246d"
-  integrity sha512-imsdZQ36CoG8fKz5WMpUwazc5OctwYDyWXQpCxFpWO+JHonvp/I6URRsSEG8T+r460q3Hz2MYoMDAAdZqK1dSg==
+"@statechannels/channel-client@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.npmjs.org/@statechannels/channel-client/-/channel-client-0.0.2.tgz#ea4eefe28b2954456218281174c82f7885ec06dd"
+  integrity sha512-UV3C3H8uGFXzSl+mfaYkVLBLRpbI694qHvR6UwPxMvxrUJhnAYg4RoUBIm4w5/Ehg/igdrcYdUcrNkwbm8O1nA==
   dependencies:
     "@statechannels/channel-provider" "*"
     "@statechannels/client-api-schema" "0.0.1"
@@ -4503,6 +4503,13 @@
   version "0.0.1"
   resolved "https://registry.npmjs.org/@statechannels/client-api-schema/-/client-api-schema-0.0.1.tgz#fa6bc51b9fa411981100eeddd771334aa4a0c682"
   integrity sha512-IXx/gLfs7jEOkMo8azWRkuyN1u1Wt6+xmJcE9spqKZ1Owh2rTicJn9MkxMqUGm3Nyi+plaumq3tVuwFgXLM4fQ==
+  dependencies:
+    ajv "6.11.0"
+
+"@statechannels/client-api-schema@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.npmjs.org/@statechannels/client-api-schema/-/client-api-schema-0.0.2.tgz#8888b844af0667ab8cc29b9eed0a7e9d1f426ca1"
+  integrity sha512-SqB+O7ElM9WE+sgV9A85ZVhPrc9Y9jnYH/4okZQP3Sk/K2NMNecVYpFn/CpBdGVRRkHN5li9ueXRkaHya8UzjA==
   dependencies:
     ajv "6.11.0"
 
