@@ -4481,10 +4481,10 @@
   dependencies:
     type-detect "4.0.8"
 
-"@statechannels/channel-client@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.npmjs.org/@statechannels/channel-client/-/channel-client-0.0.5.tgz#432a1b5506bbc8581d5a5a2d370f665e2538c012"
-  integrity sha512-k3xEv5LzZEQxIUHWZwPtephj8L3nY2s5rb1ZuNT0f0aj+5NRv7JJqwTzKbCe1KokHQu45n3SLNyOB/ZAuh0M6A==
+"@statechannels/channel-client@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/@statechannels/channel-client/-/channel-client-0.0.6.tgz#e67c9f9ded3ef149cb12f12b7c7529dec20ee058"
+  integrity sha512-JNmvH1ORg0nQPKN6C8Wvczf2MPGe4aXNpqMC0YYcRyaJVhUL0UkRTFIoUHJUk3wunKr+O41MRg5myPzZPc6ekA==
   dependencies:
     "@statechannels/channel-provider" "*"
     "@statechannels/client-api-schema" "0.0.3"
@@ -11472,7 +11472,7 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-"circom@github:LimeChain/circom":
+circom@LimeChain/circom:
   version "0.0.24"
   resolved "https://codeload.github.com/LimeChain/circom/tar.gz/4ae2447b97d558820a7c7817d602185478ad0b92"
   dependencies:
@@ -11550,7 +11550,7 @@ clean-up-path@^1.0.0:
   resolved "https://registry.npmjs.org/clean-up-path/-/clean-up-path-1.0.0.tgz#de9e8196519912e749c9eaf67c13d64fac72a3e5"
   integrity sha512-PHGlEF0Z6976qQyN6gM7kKH6EH0RdfZcc8V+QhFe36eRxV0SMH5OUBZG7Bxa9YcreNzyNbK63cGiZxdSZgosRw==
 
-"cli-analytics-sdk@github:LimeChain/cli-analytics-sdk":
+cli-analytics-sdk@LimeChain/cli-analytics-sdk:
   version "1.0.0"
   resolved "https://codeload.github.com/LimeChain/cli-analytics-sdk/tar.gz/a6889825b171d1a146936b13287357c93b5535b9"
   dependencies:
@@ -27207,14 +27207,7 @@ rxfire@3.11.2:
   dependencies:
     tslib "1.11.1"
 
-rxjs@6.5.5:
-  version "6.5.5"
-  resolved "https://registry.npmjs.org/rxjs/-/rxjs-6.5.5.tgz#c5c884e3094c8cfee31bf27eb87e54ccfc87f9ec"
-  integrity sha512-WfQI+1gohdf0Dai/Bbmk5L5ItH5tYqm3ki2c5GdWhKjalzjg93N3avFjVStyZZz+A2Em+ZxKH5bNghw9UeylGQ==
-  dependencies:
-    tslib "^1.9.0"
-
-rxjs@^6.3.3, rxjs@^6.4.0, rxjs@^6.5.4, rxjs@^6.6.0:
+rxjs@6.6.0, rxjs@^6.3.3, rxjs@^6.4.0, rxjs@^6.5.4, rxjs@^6.6.0:
   version "6.6.0"
   resolved "https://registry.npmjs.org/rxjs/-/rxjs-6.6.0.tgz#af2901eedf02e3a83ffa7f886240ff9018bbec84"
   integrity sha512-3HMA8z/Oz61DUHe+SdOiQyzIf4tOx5oQHmMir7IZEu6TMqCLHT4LRcmNaUS0NwOz8VLvmmBduMsoaUvMaIiqzg==
@@ -27957,7 +27950,7 @@ snapsvg@0.5.1:
   dependencies:
     eve "~0.5.1"
 
-"snarkjs@github:LimeChain/snarkjs":
+snarkjs@LimeChain/snarkjs:
   version "0.1.11"
   resolved "https://codeload.github.com/LimeChain/snarkjs/tar.gz/f7036ebe9bfa3f3817077f050780c8ec1542e249"
   dependencies:
