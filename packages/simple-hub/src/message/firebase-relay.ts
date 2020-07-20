@@ -23,8 +23,6 @@ function getFirebaseApp() {
 
   const connectedRef = firebase.database().ref('.info/connected');
   object(connectedRef)
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
     .pipe(map(change => (change.snapshot.val() ? 'connected' : 'disconnected')))
     .subscribe(status => log.info(`FIREBASE ${status}`));
 
@@ -42,12 +40,9 @@ function fbSend(message: WireMessage) {
     .push(JSON.parse(JSON.stringify(message)));
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function fbObservable(): any {
+export function fbObservable() {
   const hubRef = getMessagesRef().child(cHubParticipantId);
   return stateChanges(hubRef, [ListenEvent.added]).pipe(
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
     map(change => ({
       snapshotKey: change.snapshot.key,
       message: pipe(right(change.snapshot.val()), chain(isValidMessage), fpMap(deserializeMessage))
