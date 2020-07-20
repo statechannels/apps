@@ -4491,16 +4491,7 @@
     ethers "4.0.45"
     eventemitter3 "4.0.0"
 
-"@statechannels/channel-provider@*":
-  version "0.0.4"
-  resolved "https://registry.npmjs.org/@statechannels/channel-provider/-/channel-provider-0.0.4.tgz#9a0c635283ddcc12e6080948d761b5b585cf3bbd"
-  integrity sha512-bVUxPTq38WqftpaNHmvyG9flM8kviqP6/SzGl04497FhlwtbRF4UTGToouzRse76uLWMULe9GEEcAsT1dxSxrg==
-  dependencies:
-    eventemitter3 "4.0.0"
-    guid-typescript "1.0.9"
-    pino "6.2.0"
-
-"@statechannels/channel-provider@0.0.5":
+"@statechannels/channel-provider@*", "@statechannels/channel-provider@0.0.5":
   version "0.0.5"
   resolved "https://registry.npmjs.org/@statechannels/channel-provider/-/channel-provider-0.0.5.tgz#bf61011ffe4a01e268909ad2ec460664ddd05e4d"
   integrity sha512-lL6VXoWL99RziDz9guet9w3kAOVUHUVLXq3NXp8I34oOu+WNVfCqb1+jDPpevrEdTsO+4yh91+qPMaoAco5Dew==
