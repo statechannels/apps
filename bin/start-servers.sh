@@ -31,9 +31,10 @@ if test -f $GANACHE_DEPLOYMENTS; then
   exit 1
 fi
 
-cd $PACKAGES/devtools
-yarn start:shared-ganache | tee $E2E_ROOT/shared-ganache.log &
+cd $MONOREPO_ROOT/node_modules/@statechannels/devtools
+PROJECT_ROOT='../../..' yarn start:shared-ganache | tee $E2E_ROOT/shared-ganache.log &
 
+cd $MONOREPO_ROOT
 yarn run wait-on -t $WAIT_ON_TIMEOUT -i $WAIT_ON_INTERVAL $MONOREPO_ROOT/.ganache-deployments/ganache-deployments-8545.json
 
 cd $PACKAGES/simple-hub
@@ -42,7 +43,7 @@ yarn start:dev | tee $E2E_ROOT/hub.log &
 cd $PACKAGES/$APP
 yarn start | tee $E2E_ROOT/$APP.log &
 
-cd $PACKAGES/xstate-wallet
-yarn start | tee $E2E_ROOT/xstate-wallet.log &
+cd $MONOREPO_ROOT/node_modules/@statechannels/xstate-wallet
+PROJECT_ROOT='../../..' yarn start | tee $E2E_ROOT/xstate-wallet.log &
 
 wait
