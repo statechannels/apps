@@ -1,0 +1,79 @@
+diff --git a/node_modules/@statechannels/xstate-wallet/src/store/index.ts b/node_modules/@statechannels/xstate-wallet/src/store/index.ts
+index 47b0ca5..5159e34 100644
+--- a/node_modules/@statechannels/xstate-wallet/src/store/index.ts
++++ b/node_modules/@statechannels/xstate-wallet/src/store/index.ts
+@@ -11,7 +11,7 @@ export {Store} from './store';
+ import {ChannelStoreEntry} from './channel-store-entry';
+ 
+ // TODO: Move to somewhere better?
+-export function supportedStateFeed(store: Store, channelId: string) {
++export function supportedStateFeed(store: Store, channelId: string): any {
+   return store.channelUpdatedFeed(channelId).pipe(
+     filter(e => !!e.supported),
+     map(e => ({state: {...e.channelConstants, ...(e.supported as StateVariables)}}))
+diff --git a/node_modules/@statechannels/xstate-wallet/src/workflows/tests/simple-hub.ts b/node_modules/@statechannels/xstate-wallet/src/workflows/tests/simple-hub.ts
+index aadda2a..a795bf0 100644
+--- a/node_modules/@statechannels/xstate-wallet/src/workflows/tests/simple-hub.ts
++++ b/node_modules/@statechannels/xstate-wallet/src/workflows/tests/simple-hub.ts
+@@ -1,6 +1,6 @@
+ import {Message, createSignatureEntry} from '@statechannels/wallet-core';
+ import {Observable, fromEvent} from 'rxjs';
+-import {EventEmitter} from 'eventemitter3';
++import EventEmitter = require('eventemitter3');
+ 
+ import {ethers} from 'ethers';
+ 
+diff --git a/node_modules/@statechannels/xstate-wallet/tsconfig.json b/node_modules/@statechannels/xstate-wallet/tsconfig.json
+index 4100513..41a2237 100644
+--- a/node_modules/@statechannels/xstate-wallet/tsconfig.json
++++ b/node_modules/@statechannels/xstate-wallet/tsconfig.json
+@@ -1,16 +1,25 @@
+ {
+-  "extends": "../../tsconfig.json",
+   "compilerOptions": {
++    // Copy pasted from monorepo/tsconfig.json
++    "composite": true,
++    "declaration": true,
++    "declarationMap": true,
++    "forceConsistentCasingInFileNames": true,
++    "moduleResolution": "node",
++    "noImplicitReturns": true,
++    "removeComments": true,
++    "resolveJsonModule": true,
++    "sourceMap": true,
++    // End copy paste
++
+     "allowSyntheticDefaultImports": true,
+     "baseUrl": "src",
+     "esModuleInterop": true,
+     "lib": ["es6", "ES2019", "dom"],
+     "module": "commonjs",
+     "noImplicitAny": false,
+-    "noImplicitReturns": true,
+     "noImplicitThis": true,
+     "preserveSymlinks": true,
+-
+     "noUnusedLocals": true,
+     "outDir": "lib",
+     "strict": false,
+@@ -22,19 +31,5 @@
+     "jsx": "react",
+     "types": ["react", "jest", "node", "segment-analytics"]
+   },
+-  "include": ["./src"],
+-  "references": [
+-    {
+-      "path": "../nitro-protocol"
+-    },
+-    {
+-      "path": "../devtools"
+-    },
+-    {
+-      "path": "../client-api-schema"
+-    },
+-    {
+-      "path": "../wallet-core"
+-    }
+-  ]
++  "include": ["./src"]
+ }
