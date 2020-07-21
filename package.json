@@ -8,7 +8,6 @@
     "@types/wait-on": "4.0.0",
     "husky": "3.0.7",
     "lerna": "3.16.4",
-    "netlify-cli": "2.30.0",
     "npm-normalize-package-bin": "1.0.1",
     "postinstall-postinstall": "2.0.0",
     "prettier": "1.19.1",
@@ -30,7 +29,6 @@
   ],
   "private": true,
   "resolutions": {
-    "end-of-stream": "1.4.1",
     "@types/react": "16.9.19",
     "broccoli": "3.3.3",
     "ethereum-transaction-debugger": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.0.2.tgz",
@@ -68,7 +66,8 @@
       "packages/*"
     ],
     "nohoist": [
-      "**/ethers"
+      "**/ethers",
+      "**/end-of-stream"
     ]
   }
 }
