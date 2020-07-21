@@ -9,7 +9,7 @@
     "@firebase/database": "0.5.19",
     "@sentry/node": "5.15.5",
     "@statechannels/nitro-protocol": "0.1.5",
-    "@statechannels/wire-format": "0.0.5",
+    "@statechannels/wire-format": "0.0.7",
     "async-lock": "1.2.2",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
@@ -19,7 +19,7 @@
     "lodash": "4.17.19",
     "pino": "6.2.0",
     "rxfire": "3.11.2",
-    "rxjs": "6.5.5"
+    "rxjs": "6.6.0"
   },
   "devDependencies": {
     "@statechannels/devtools": "0.1.4",
