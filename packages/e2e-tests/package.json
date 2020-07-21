@@ -7,7 +7,7 @@
     "@statechannels/channel-provider": "0.0.5",
     "@statechannels/client-api-schema": "0.0.3",
     "@statechannels/devtools": "0.1.4",
-    "@statechannels/xstate-wallet": "0.0.4",
+    "@statechannels/xstate-wallet": "0.0.8",
     "@types/eslint": "6.1.7",
     "@types/eslint-plugin-prettier": "2.2.0",
     "@types/jest": "25.1.0",
