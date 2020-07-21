@@ -11,6 +11,18 @@ index 47b0ca5..5159e34 100644
    return store.channelUpdatedFeed(channelId).pipe(
      filter(e => !!e.supported),
      map(e => ({state: {...e.channelConstants, ...(e.supported as StateVariables)}}))
+diff --git a/node_modules/@statechannels/xstate-wallet/src/workflows/tests/simple-hub.ts b/node_modules/@statechannels/xstate-wallet/src/workflows/tests/simple-hub.ts
+index aadda2a..a795bf0 100644
+--- a/node_modules/@statechannels/xstate-wallet/src/workflows/tests/simple-hub.ts
++++ b/node_modules/@statechannels/xstate-wallet/src/workflows/tests/simple-hub.ts
+@@ -1,6 +1,6 @@
+ import {Message, createSignatureEntry} from '@statechannels/wallet-core';
+ import {Observable, fromEvent} from 'rxjs';
+-import {EventEmitter} from 'eventemitter3';
++import EventEmitter = require('eventemitter3');
+ 
+ import {ethers} from 'ethers';
+ 
 diff --git a/node_modules/@statechannels/xstate-wallet/tsconfig.json b/node_modules/@statechannels/xstate-wallet/tsconfig.json
 index 4100513..41a2237 100644
 --- a/node_modules/@statechannels/xstate-wallet/tsconfig.json
