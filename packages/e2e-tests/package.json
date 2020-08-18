@@ -4,9 +4,9 @@
   "version": "0.0.1",
   "author": "snario <liam@l4v.io>",
   "devDependencies": {
-    "@statechannels/iframe-channel-provider": "0.3.0",
     "@statechannels/client-api-schema": "0.3.0",
     "@statechannels/devtools": "0.3.0",
+    "@statechannels/iframe-channel-provider": "0.3.0",
     "@statechannels/xstate-wallet": "0.3.0",
     "@types/eslint": "6.1.7",
     "@types/eslint-plugin-prettier": "2.2.0",
