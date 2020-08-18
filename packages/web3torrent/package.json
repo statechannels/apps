@@ -20,8 +20,9 @@
     "@material-ui/icons": "4.9.1",
     "@rimble/connection-banner": "1.2.3",
     "@sentry/browser": "5.15.5",
-    "@statechannels/channel-client": "0.0.6",
-    "@statechannels/devtools": "0.1.4",
+    "@statechannels/channel-client": "0.3.0",
+    "@statechannels/devtools": "0.3.0",
+    "@statechannels/iframe-channel-provider": "0.3.0",
     "@svgr/webpack": "4.3.2",
     "@typescript-eslint/eslint-plugin": "2.18.0",
     "@typescript-eslint/parser": "2.18.0",
@@ -84,7 +85,6 @@
     "workbox-webpack-plugin": "5.0.0"
   },
   "devDependencies": {
-    "@statechannels/channel-provider": "0.0.5",
     "@storybook/addon-actions": "5.3.9",
     "@storybook/addon-knobs": "5.2.5",
     "@storybook/addon-notes": "5.2.5",
