@@ -253,11 +253,11 @@ contract RockPaperScissors is ForceMoveApp {
     ) private pure {
         require(
             toAllocation[0].destination == fromAllocation[0].destination,
-            'RockPaperScissors: Destimation playerA may not change'
+            'RockPaperScissors: Destination playerA may not change'
         );
         require(
             toAllocation[1].destination == fromAllocation[1].destination,
-            'RockPaperScissors: Destimation playerB may not change'
+            'RockPaperScissors: Destination playerB may not change'
         );
     }
 
