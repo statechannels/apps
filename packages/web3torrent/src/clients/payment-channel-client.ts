@@ -518,4 +518,3 @@ export class PaymentChannelClient {
 export const paymentChannelClient = new PaymentChannelClient(
   new ChannelClient(window.channelProvider)
 );
-paymentChannelClient.initialize();
