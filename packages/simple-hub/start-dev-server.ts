@@ -7,7 +7,11 @@ import {startServer} from './src/server';
 import {log} from './src/logger';
 
 async function setupGanacheAndContracts() {
-  if (getNetworkName(process.env.CHAIN_NETWORK_ID) === 'development') {
+  // TODO: Devtools doesn't support hyperspace yet so we manually hav e to check for it
+  if (
+    getNetworkName(process.env.CHAIN_NETWORK_ID || 0) === 'development' &&
+    Number(process.env.CHAIN_NETWORK_ID) !== 3141
+  ) {
     const {deployer} = await setupGanache(Number(process.env.SIMPLE_HUB_DEPLOYER_ACCOUNT_INDEX));
     const deployedArtifacts = await deploy(deployer);
 
