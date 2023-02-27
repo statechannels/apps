@@ -21,7 +21,7 @@ const log = logger.child({module: 'App'});
 
 const App: React.FC = () => {
   const [currentNetwork, setCurrentNetwork] = useState(
-    window.ethereum ? Number(window.ethereum.networkVersion) : undefined
+    window.ethereum ? Number(window.ethereum.chainId) : undefined
   );
 
   const [initialized, setInitialized] = useState(false);
@@ -52,7 +52,9 @@ const App: React.FC = () => {
     return () => ({});
   }, []);
 
-  const ready = currentNetwork === requiredNetwork && initialized;
+  // TODO: re-enable this when we figure out the proper way to do this
+  //const ready = currentNetwork === requiredNetwork && initialized;
+  const ready = initialized;
 
   return (
     <BrowserRouter>
@@ -73,14 +75,12 @@ const App: React.FC = () => {
           <Route exact path={RoutePath.FileWithInfoHash}>
             <File ready={ready} />
           </Route>
-          } />
           <Route exact path={RoutePath.Upload}>
             <Upload ready={ready} />
           </Route>
           <Route exact path={RoutePath.Budgets}>
             <Budgets ready={ready} />
           </Route>
-          />
         </Switch>
       </main>
       <Route path={RoutePath.Root} component={LayoutFooter} />
