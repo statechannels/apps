@@ -1,4 +1,4 @@
-import {utils, constants} from 'ethers';
+import {utils, constants, BigNumber} from 'ethers';
 import {
   FakeChannelProvider,
   ChannelClient,
@@ -22,7 +22,7 @@ import {
   FUNDING_STRATEGY,
   INITIAL_BUDGET_AMOUNT
 } from '../constants';
-import {AddressZero} from 'ethers/constants';
+
 import * as firebase from 'firebase/app';
 import 'firebase/database';
 import {map, filter, first} from 'rxjs/operators';
@@ -37,8 +37,8 @@ function sanitizeMessageForFirebase(message) {
   return JSON.parse(JSON.stringify(message));
 }
 
-const bigNumberify = utils.bigNumberify;
-const FINAL_SETUP_STATE = utils.bigNumberify(3); // for a 2 party ForceMove channel
+const bigNumberify = BigNumber.from;
+const FINAL_SETUP_STATE = bigNumberify(3); // for a 2 party ForceMove channel
 const APP_DATA = constants.HashZero; // unused in the SingleAssetPaymentApp
 
 export interface Peer {
@@ -55,11 +55,11 @@ export const peer = (
 ): Peer => ({
   signingAddress,
   outcomeAddress,
-  balance: utils.bigNumberify(balance).toHexString()
+  balance: bigNumberify(balance).toHexString()
 });
 export interface ChannelState {
   channelId: string;
-  turnNum: utils.BigNumber;
+  turnNum: BigNumber;
   status: ChannelStatus;
   challengeExpirationTime;
   beneficiary: Peer;
@@ -83,7 +83,7 @@ const convertToChannelState = (channelResult: ChannelResult): ChannelState => {
 
   return {
     channelId,
-    turnNum: utils.bigNumberify(turnNum),
+    turnNum: bigNumberify(turnNum),
     status,
     challengeExpirationTime,
     beneficiary: peer(
@@ -124,7 +124,7 @@ const formatItem = (p: Peer): AllocationItem => ({
   destination: p.outcomeAddress
 });
 const formatAllocations = (peers: Peers): Allocations => [
-  {token: AddressZero, allocationItems: arrangePeers(peers).map(formatItem)}
+  {token: utils.zeroPad('0x0', 20), allocationItems: arrangePeers(peers).map(formatItem)}
 ];
 
 const subtract = (a: string, b: string) =>
@@ -151,7 +151,7 @@ if (process.env.FAKE_CHANNEL_PROVIDER === 'true') {
 } else {
   // TODO: Replace with injection via other means than direct app import
   // NOTE: This adds `channelProvider` to the `Window` object
-  require('@statechannels/channel-provider');
+  require('@statechannels/iframe-channel-provider');
 }
 
 export type ChannelCache = Record<string, ChannelState | undefined>;
@@ -186,7 +186,6 @@ export class PaymentChannelClient {
 
   async initialize() {
     await this.channelClient.provider.mountWalletComponent(process.env.WALLET_URL);
-    await this.initializeHubComms();
   }
 
   async enable() {
@@ -196,6 +195,9 @@ export class PaymentChannelClient {
 
     log.debug('payment channel client enabled');
 
+    log.debug('Initializing hub comms');
+    this.initializeHubComms();
+    log.debug('Initialized hub comms');
     const doesBudgetExist = async () => {
       const budget = await this.getBudget();
       return !!budget && !_.isEmpty(budget);
@@ -516,3 +518,4 @@ export class PaymentChannelClient {
 export const paymentChannelClient = new PaymentChannelClient(
   new ChannelClient(window.channelProvider)
 );
+paymentChannelClient.initialize();
