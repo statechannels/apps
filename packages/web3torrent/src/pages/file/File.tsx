@@ -20,7 +20,7 @@ import {logger} from '../../logger';
 
 const log = logger.child({module: 'File'});
 import {WEI_PER_BYTE} from '../../constants';
-import {bigNumberify} from 'ethers/utils';
+import {BigNumber} from 'ethers';
 import {safeUnsubscribe} from '../../utils/react-utls';
 import {ChannelState} from '../../clients/payment-channel-client';
 
@@ -52,7 +52,7 @@ const File: React.FC<Props> = props => {
   const [loading, setLoading] = useState(false);
   const [errorLabel, setErrorLabel] = useState('');
   const [warningState, setWarningState] = useState('');
-  const [channels, setChannels] = useState<Record<string, ChannelState>>(undefined);
+  const [channels, setChannels] = useState<Record<string, ChannelState>>({});
   const torrentName = queryParams.get('name');
   const torrentLength = Number(queryParams.get('length'));
 
@@ -123,13 +123,13 @@ const File: React.FC<Props> = props => {
   if (showBudget) {
     if (
       (torrent.status === Status.Seeding || torrent.status === Status.Downloading) &&
-      bigNumberify(budget.budgets[0].availableReceiveCapacity).lt(fileCost)
+      BigNumber.from(budget.budgets[0].availableReceiveCapacity).lt(fileCost)
     ) {
       warning = `You're running out of room to receive funds in your budget! You won't be able to upload to new peers!`;
     }
     if (
       torrent.status === Status.Idle &&
-      bigNumberify(budget.budgets[0].availableSendCapacity).lt(fileCost)
+      BigNumber.from(budget.budgets[0].availableSendCapacity).lt(fileCost)
     ) {
       warning = 'You do not have enough funds in your budget to download this file.';
       buttonEnabled = false;

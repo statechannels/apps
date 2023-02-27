@@ -1,12 +1,12 @@
 import {Status, TorrentUI} from './types';
 import {ChannelState, Peer} from './clients/payment-channel-client';
-import {utils} from 'ethers';
+import {BigNumber, utils} from 'ethers';
 import path from 'path';
 
 export const VERSION = process.env.VERSION;
 export const COMMIT_HASH = process.env.COMMIT_HASH;
 
-export const WEI_PER_BYTE = utils.bigNumberify(1); // cost per byte
+export const WEI_PER_BYTE = BigNumber.from(1); // cost per byte
 export const BLOCK_LENGTH = 1 << 14; // Standard request length.
 export const PEER_TRUST = 5; //amount of trust between peers. It's equivalent to the amount of request to pre-pay.
 // The recomended value is 5 ( the size of the queue of requests made by the leecher to the seeder)
@@ -17,7 +17,7 @@ export const PEER_TRUST = 5; //amount of trust between peers. It's equivalent to
 // A high BUFFER_REFILL_RATE increases the need for trust, but decreases the number of additional messages and therefore latency
 // It can also cause a payment to go above the leecher's balance / capabilities
 
-export const INITIAL_SEEDER_BALANCE = utils.bigNumberify(0); // needs to be zero so that depositing works correctly (unidirectional payment channel)
+export const INITIAL_SEEDER_BALANCE = BigNumber.from(0); // needs to be zero so that depositing works correctly (unidirectional payment channel)
 
 const randomNumberGenerator = (length: number) => {
   // Programatic way of getting fixed length number, based of https://stackoverflow.com/a/21816636/6569950
@@ -43,7 +43,6 @@ export const fireBaseConfig =
   process.env.FUNDING_STRATEGY !== 'Virtual'
     ? undefined
     : {
-        apiKey: process.env.FIREBASE_API_KEY,
         databaseURL: process.env.FIREBASE_URL
       };
 
@@ -143,7 +142,7 @@ export const mockSeeder = '0xc631e3bf86075f4d2b45ba974cff4ef5a5f922a0';
 
 const peer = (signingAddress, balance: number): Peer => ({
   signingAddress,
-  balance: utils.bigNumberify(balance).toString(),
+  balance: BigNumber.from(balance).toString(),
   outcomeAddress: 'outcome'
 });
 
@@ -176,7 +175,7 @@ export {SINGLE_ASSET_PAYMENT_CONTRACT_ADDRESS};
 export const FUNDING_STRATEGY = process.env.FUNDING_STRATEGY === 'Direct' ? 'Direct' : 'Virtual';
 
 export const INITIAL_BUDGET_AMOUNT = utils.hexZeroPad(
-  utils.parseUnits(process.env.INITIAL_BUDGET_AMOUNT ?? '100', 'Mwei').toHexString(),
+  utils.parseUnits(process.env.INITIAL_BUDGET_AMOUNT ?? '100', 'mwei').toHexString(),
   32
 ); //  Defaults to 100 Mwei, or MAX_FILE_SIZE * 10
 
