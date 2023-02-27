@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import {DomainBudget as DomainBudgetType} from '@statechannels/client-api-schema';
 import {ChannelState} from '../../clients/payment-channel-client';
-import {utils} from 'ethers';
 import {Web3TorrentClientContext} from '../../clients/web3torrent-client';
 import './DomainBudget.scss';
 import {track} from '../../segment-analytics';
@@ -11,16 +10,17 @@ import {
   LinearProgress,
   Box,
   Typography,
-  LinearProgressProps
+  LinearProgressProps,
+  Icon
 } from '@material-ui/core';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+
 import {Blockie} from 'rimble-ui';
 import {PieChart} from 'react-minimal-pie-chart';
 import {prettyPrintWei} from '../../utils/calculateWei';
-import {BigNumber} from 'ethers/utils';
+import {BigNumber} from 'ethers';
 import bigDecimal from 'js-big-decimal';
 
-const bigNumberify = utils.bigNumberify;
+const bigNumberify = BigNumber.from;
 
 export type DomainBudgetProps = {
   channelCache: Record<string, ChannelState>;
@@ -107,7 +107,7 @@ export const DomainBudget: React.FC<DomainBudgetProps> = props => {
                 title="A budget represents the funds that web3torrent is managing on your behalf. These funds can
           be used to pay for parts of a file."
               >
-                <HelpOutlineIcon style={{color: '#ea692b', fontSize: 20}} />
+                <Icon style={{color: '#ea692b', fontSize: 20}} />
               </Tooltip>
               <br></br>
               Your Budget: <br></br>
