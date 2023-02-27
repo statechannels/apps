@@ -124,7 +124,7 @@ const formatItem = (p: Peer): AllocationItem => ({
   destination: p.outcomeAddress
 });
 const formatAllocations = (peers: Peers): Allocations => [
-  {token: utils.zeroPad('0x0', 20), allocationItems: arrangePeers(peers).map(formatItem)}
+  {token: '0x00', allocationItems: arrangePeers(peers).map(formatItem)}
 ];
 
 const subtract = (a: string, b: string) =>
