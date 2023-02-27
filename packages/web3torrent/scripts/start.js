@@ -81,7 +81,11 @@ void (async () => {
   });
 
   process.env.TARGET_NETWORK = getNetworkName(process.env.CHAIN_NETWORK_ID);
-
+  // TODO: Devtools doesn't support hyperspace yet
+  if (Number(process.env.CHAIN_NETWORK_ID) === 3141) {
+    process.env.TARGET_NETWORK = 'hyperspace';
+    console.log("Using 'hyperspace' as the target network");
+  }
   if (process.env.TARGET_NETWORK === 'development') {
     // Add contract addresses to process.env if running ganache
     const {deployer} = await await setupGanache(process.env.WEB3TORRENT_DEPLOYER_ACCOUNT_INDEX);
