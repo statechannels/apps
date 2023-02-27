@@ -4257,8 +4257,6 @@
   version "4.9.1"
   resolved "https://registry.npmjs.org/@material-ui/icons/-/icons-4.9.1.tgz#fdeadf8cb3d89208945b33dbc50c7c616d0bd665"
   integrity sha512-GBitL3oBWO0hzBhvA9KxqcowRUsA0qzwKkURyC8nppnC3fw54KPKZ+d4V1Eeg/UnDRSzDaI9nGCdel/eh9AQMg==
-  dependencies:
-    "@babel/runtime" "^7.4.4"
 
 "@material-ui/styles@^4.9.14":
   version "4.10.0"
@@ -5154,10 +5152,10 @@
     write-json-file "4.2.0"
     yargs "15.1.0"
 
-"@statechannels/iframe-channel-provider@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.npmjs.org/@statechannels/iframe-channel-provider/-/iframe-channel-provider-0.3.0.tgz#a329a9630e352e32715a13f07bf9a5b91c0cacf0"
-  integrity sha512-Pe1oTg6Iib1E33YxHcI1an7tZ4Q1F1QIpSrxV3dJ5KSRiqYZ609zBGCi7tJJ1rxckbIcudLwtW/gEvUH1DRd8Q==
+"@statechannels/iframe-channel-provider@0.3.0-hyperspace":
+  version "0.3.0-hyperspace"
+  resolved "https://registry.npmjs.org/@statechannels/iframe-channel-provider/-/iframe-channel-provider-0.3.0-hyperspace.tgz#5927a8ffb1aa71b54f3899c368c7b59c6fcc5cf1"
+  integrity sha512-z84waikMXQQPm0mrJV1/lxZxv5xNcz4606YTy9DyD0IJL0J/PvhZ2dixdYTEuxRtWS6F2tysq22ZjaAPTfpYVg==
   dependencies:
     eventemitter3 "4.0.0"
     guid-typescript "1.0.9"
