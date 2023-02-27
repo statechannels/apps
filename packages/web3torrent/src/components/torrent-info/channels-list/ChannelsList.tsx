@@ -4,7 +4,7 @@ import React, {useContext} from 'react';
 import {ChannelCache, ChannelState} from '../../../clients/payment-channel-client';
 import './ChannelsList.scss';
 import {prettyPrintWei, prettyPrintBytes} from '../../../utils/calculateWei';
-import {utils} from 'ethers';
+import {BigNumber} from 'ethers';
 import {TorrentUI} from '../../../types';
 import {Blockie} from 'rimble-ui';
 import {Badge, Avatar, Tooltip} from '@material-ui/core';
@@ -40,10 +40,10 @@ function channelIdToTableRow(
     dataTransferred = isBeneficiary ? prettier(wire.uploaded) : prettier(wire.downloaded);
   } else {
     // Use the beneficiery balance as an approximate of the file size, when wire is dropped.
-    dataTransferred = prettyPrintBytes(utils.bigNumberify(channelState.beneficiary.balance));
+    dataTransferred = prettyPrintBytes(BigNumber.from(channelState.beneficiary.balance));
   }
 
-  const weiTransferred = prettyPrintWei(utils.bigNumberify(channelState.beneficiary.balance));
+  const weiTransferred = prettyPrintWei(BigNumber.from(channelState.beneficiary.balance));
 
   let connectionStatus;
   if (wire) {
