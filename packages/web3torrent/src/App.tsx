@@ -44,9 +44,9 @@ const App: React.FC = () => {
   useEffect(() => {
     if (window.ethereum && typeof window.ethereum.on === 'function') {
       const networkChangeListener = chainId => setCurrentNetwork(Number(chainId));
-      window.ethereum.on('networkChanged', networkChangeListener);
+      window.ethereum.on('chainChanged', networkChangeListener);
       return () => {
-        window.ethereum.removeListener('networkChanged', networkChangeListener);
+        window.ethereum.removeListener('chainChanged', networkChangeListener);
       };
     }
     return () => ({});
