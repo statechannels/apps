@@ -36,3 +36,27 @@ export const prettyPrintWei = (wei: BigNumber): string => {
     return formattedString;
   }
 };
+
+// 1 wei is equivalent to 1 attoFil
+export const prettyPrintAttoFIL = (amount: BigNumber): string => {
+  const PRECISION = 1;
+  const names = ['attoFIL', 'femtoFIL', 'picoFIL', 'nanoFIL', 'microFIL', 'milliFIL', 'FIL'];
+  const decimals = [0, 3, 6, 9, 12, 15, 18];
+
+  if (!amount) {
+    return 'unknown';
+  } else if (amount.eq(BigNumber.from(0))) {
+    return '0 wei';
+  } else {
+    let formattedString;
+    decimals.forEach((decimal, index) => {
+      if (amount.gte(BigNumber.from(10).pow(decimal))) {
+        formattedString =
+          bigDecimal.divide(amount.toString(), BigNumber.from(10).pow(decimal), PRECISION) +
+          ' ' +
+          names[index];
+      }
+    });
+    return formattedString;
+  }
+};
