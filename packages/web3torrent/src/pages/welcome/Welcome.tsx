@@ -21,29 +21,27 @@ const Welcome: React.FC<Props> = () => {
         <h2>WITH MICROPAYMENTS</h2>
       </div>
       <div className="subtitle">
-        <p>
-          <div className="actions-container">
-            <FormButton
-              className="button shadow"
-              name="download"
-              onClick={() => {
-                track('Sample Download Nav');
-                history.push(generateURL(preseededTorrentsUI[0]));
-              }}
-            >
-              Download a sample file
-            </FormButton>
-            <FormButton
-              name="download"
-              onClick={() => {
-                track('Upload Your Own Nav');
-                history.push(RoutePath.Upload);
-              }}
-            >
-              Upload your own file
-            </FormButton>
-          </div>
-        </p>
+        <div className="actions-container">
+          <FormButton
+            className="button shadow"
+            name="download"
+            onClick={() => {
+              track('Sample Download Nav');
+              history.push(generateURL(preseededTorrentsUI[0]));
+            }}
+          >
+            Download a sample file
+          </FormButton>
+          <FormButton
+            name="download"
+            onClick={() => {
+              track('Upload Your Own Nav');
+              history.push(RoutePath.Upload);
+            }}
+          >
+            Upload your own file
+          </FormButton>
+        </div>
       </div>
       <div className="subtitle">
         <p>
