@@ -5152,10 +5152,10 @@
     write-json-file "4.2.0"
     yargs "15.1.0"
 
-"@statechannels/iframe-channel-provider@0.3.0-hyperspace":
-  version "0.3.0-hyperspace"
-  resolved "https://registry.npmjs.org/@statechannels/iframe-channel-provider/-/iframe-channel-provider-0.3.0-hyperspace.tgz#5927a8ffb1aa71b54f3899c368c7b59c6fcc5cf1"
-  integrity sha512-z84waikMXQQPm0mrJV1/lxZxv5xNcz4606YTy9DyD0IJL0J/PvhZ2dixdYTEuxRtWS6F2tysq22ZjaAPTfpYVg==
+"@statechannels/iframe-channel-provider@0.3.0-hyperspace-patch-0":
+  version "0.3.0-hyperspace-patch-0"
+  resolved "https://registry.npmjs.org/@statechannels/iframe-channel-provider/-/iframe-channel-provider-0.3.0-hyperspace-patch-0.tgz#3bf13287b2fc6500c86e74f912fc73d5c9006bda"
+  integrity sha512-PVPu05JdZ2UQOZfGFYO8459KDsmxwTVrqLuayGHQ83LZ6npE0UF3th8b0YOrF++ZVEQfll2Mt4VUj+4k8NF1lQ==
   dependencies:
     eventemitter3 "4.0.0"
     guid-typescript "1.0.9"
