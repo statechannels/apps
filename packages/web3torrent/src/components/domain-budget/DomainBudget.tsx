@@ -16,7 +16,7 @@ import {
 
 import {Blockie} from 'rimble-ui';
 import {PieChart} from 'react-minimal-pie-chart';
-import {prettyPrintWei} from '../../utils/calculateWei';
+import {prettyPrintAttoFIL} from '../../utils/calculateWei';
 import {BigNumber} from 'ethers';
 import bigDecimal from 'js-big-decimal';
 
@@ -151,23 +151,23 @@ export const DomainBudget: React.FC<DomainBudgetProps> = props => {
                 labelPosition={112} // outer labels
                 data={[
                   {
-                    title: prettyPrintWei(myBalanceFree),
+                    title: prettyPrintAttoFIL(myBalanceFree),
                     value: myBalanceFreePercentage,
                     color: '#ea692b'
                   },
                   {
-                    title: prettyPrintWei(myBalanceLocked),
+                    title: prettyPrintAttoFIL(myBalanceLocked),
                     value: myBalanceLockedPercentage,
                     color: '#ea692b60'
                   },
 
                   {
-                    title: prettyPrintWei(hubBalanceLocked),
+                    title: prettyPrintAttoFIL(hubBalanceLocked),
                     value: hubBalanceLockedPercentage,
                     color: '#d5dbe360'
                   },
                   {
-                    title: prettyPrintWei(hubBalanceFree),
+                    title: prettyPrintAttoFIL(hubBalanceFree),
                     value: hubBalanceFreePercentage,
                     color: '#d5dbe3'
                   }
@@ -200,28 +200,28 @@ export const DomainBudget: React.FC<DomainBudgetProps> = props => {
             <LinearProgressWithLabel
               variant="determinate"
               value={hubBalanceFreePercentage}
-              label={prettyPrintWei(hubBalanceFree)}
+              label={prettyPrintAttoFIL(hubBalanceFree)}
               className={'bar hub'}
             />
             <span>Locked receive capacity </span>
             <LinearProgressWithLabel
               variant="determinate"
               value={hubBalanceLockedPercentage}
-              label={prettyPrintWei(hubBalanceLocked)}
+              label={prettyPrintAttoFIL(hubBalanceLocked)}
               className={'bar locked-hub'}
             />
             <span>Locked spend capacity </span>
             <LinearProgressWithLabel
               variant="determinate"
               value={myBalanceLockedPercentage}
-              label={prettyPrintWei(myBalanceLocked)}
+              label={prettyPrintAttoFIL(myBalanceLocked)}
               className={'bar locked-me'}
             />
             <span>Available spend capacity</span>
             <LinearProgressWithLabel
               variant="determinate"
               value={myBalanceFreePercentage}
-              label={prettyPrintWei(myBalanceFree)}
+              label={prettyPrintAttoFIL(myBalanceFree)}
               className={'bar me'}
             />
           </td>

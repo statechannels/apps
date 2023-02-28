@@ -3,7 +3,7 @@ import prettier from 'prettier-bytes';
 import React, {useContext} from 'react';
 import {ChannelCache, ChannelState} from '../../../clients/payment-channel-client';
 import './ChannelsList.scss';
-import {prettyPrintWei, prettyPrintBytes} from '../../../utils/calculateWei';
+import {prettyPrintBytes, prettyPrintAttoFIL} from '../../../utils/calculateWei';
 import {BigNumber} from 'ethers';
 import {TorrentUI} from '../../../types';
 import {Blockie} from 'rimble-ui';
@@ -43,7 +43,7 @@ function channelIdToTableRow(
     dataTransferred = prettyPrintBytes(BigNumber.from(channelState.beneficiary.balance));
   }
 
-  const weiTransferred = prettyPrintWei(BigNumber.from(channelState.beneficiary.balance));
+  const attoFILTransferred = prettyPrintAttoFIL(BigNumber.from(channelState.beneficiary.balance));
 
   let connectionStatus;
   if (wire) {
@@ -103,7 +103,7 @@ function channelIdToTableRow(
       </td>
       <td className="exchanged">
         <div className="type">{isBeneficiary ? 'earned' : 'spent'}</div>
-        <div className="amount">{weiTransferred + ' '}</div>
+        <div className="amount">{attoFILTransferred + ' '}</div>
       </td>
     </tr>
   );

@@ -5,7 +5,7 @@ import React from 'react';
 import {Router} from 'react-router-dom';
 import {RoutePath} from '../../routes';
 import {ShareList} from './ShareList';
-import {calculateWei, prettyPrintWei} from '../../utils/calculateWei';
+import {calculateWei, prettyPrintAttoFIL} from '../../utils/calculateWei';
 import prettier from 'prettier-bytes';
 import {preseededTorrentsUI} from '../../constants';
 
@@ -35,7 +35,7 @@ describe('<ShareList />', () => {
     expect(firstFileData.childAt(0).text()).toBe(preseededTorrentsUI[0].name);
     expect(firstFileData.childAt(1).text()).toBe(prettier(preseededTorrentsUI[0].length));
     expect(firstFileData.childAt(2).text()).toBe(
-      prettyPrintWei(calculateWei(preseededTorrentsUI[0].length))
+      prettyPrintAttoFIL(calculateWei(preseededTorrentsUI[0].length))
     );
     expect(firstFileData.childAt(5).find('button')).not.toBeNull();
   });

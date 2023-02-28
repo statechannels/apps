@@ -6,7 +6,7 @@ import {DownloadLink} from './download-link/DownloadLink';
 import {MagnetLinkButton} from './magnet-link-button/MagnetLinkButton';
 import './TorrentInfo.scss';
 import {PeerNetworkStats} from './peer-network-stats/PeerNetworkStats';
-import {calculateWei, prettyPrintWei} from '../../utils/calculateWei';
+import {calculateWei, prettyPrintAttoFIL} from '../../utils/calculateWei';
 import {ChannelCache} from '../../clients/payment-channel-client';
 import {FaFileDownload, FaFileUpload} from 'react-icons/fa';
 import {ChannelsList} from './channels-list/ChannelsList';
@@ -64,7 +64,7 @@ const TorrentInfo: React.FC<TorrentInfoProps> = ({
             Size: {torrent.length === 0 ? '? Mb' : prettier(torrent.length)}
           </span>
           <span className="fileCost">
-            Cost: {torrent.length ? prettyPrintWei(calculateWei(torrent.length)) : 'unknown'}
+            Cost: {torrent.length ? prettyPrintAttoFIL(calculateWei(torrent.length)) : 'unknown'}
           </span>
           {torrent.status && (
             <span className="fileStatus">
