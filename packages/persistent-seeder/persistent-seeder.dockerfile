@@ -20,7 +20,7 @@ RUN chown -R seeder: /statechannels/apps
 USER seeder
 
 # Install dependencies
-RUN yarn
+RUN yarn --network-timeout 100000
 
 WORKDIR /statechannels/apps/packages/persistent-seeder
 
