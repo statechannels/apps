@@ -1,5 +1,5 @@
 import {BigNumber} from 'ethers';
-import {prettyPrintAttoFil, prettyPrintWei} from './calculateWei';
+import {prettyPrintAttoFIL, prettyPrintWei} from './calculateWei';
 
 describe('Pretty printing wei', () => {
   it.each`
