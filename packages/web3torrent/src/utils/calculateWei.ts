@@ -16,13 +16,13 @@ export const prettyPrintBytes = (wei: BigNumber): string => {
 
 export const prettyPrintWei = (wei: BigNumber): string => {
   const PRECISION = 1;
-  const names = ['wei', 'kwei', 'Mwei', 'Gwei', 'szabo', 'finney', 'ether'];
+  const names = ['attoTFIL', 'femtoTFIL', 'picoTFIL', 'nanoTFIL', 'microTFIL', 'milliTFIL', 'TFIL'];
   const decimals = [0, 3, 6, 9, 12, 15, 18];
 
   if (!wei) {
     return 'unknown';
   } else if (wei.eq(BigNumber.from(0))) {
-    return '0 wei';
+    return '0 attoTFIL';
   } else {
     let formattedString;
     decimals.forEach((decimal, index) => {
