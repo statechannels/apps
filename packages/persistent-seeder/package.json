@@ -31,6 +31,7 @@
   "scripts": {
     "lint:check": "eslint \"**/*.ts\" --cache",
     "lint:write": "eslint \"**/*.ts\" --fix",
-    "start": "SC_ENV=production-hyperspace ts-node ./persistent-seeder.ts"
+    "start": "SC_ENV=production-hyperspace ts-node ./persistent-seeder.ts",
+    "start:hyperspace": "SC_ENV=persistent-seeder-hyperspace ts-node ./persistent-seeder.ts"
   }
 }

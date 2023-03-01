@@ -1,7 +1,7 @@
 FROM circleci/node:12.16.3-browsers
 USER root
 ENV DISPLAY :99.0
-ENV SC_ENV=production-hyperspace
+ENV SC_ENV=persistent-seeder-hyperspace
 RUN  apt-get install -y xvfb libudev-dev
 
 WORKDIR /statechannels/apps
