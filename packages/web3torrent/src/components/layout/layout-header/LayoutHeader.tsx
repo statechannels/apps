@@ -31,7 +31,7 @@ export const LayoutHeader: React.FC = () => {
             onClick={() => {
               track('FAQ Nav');
               window.open(
-                'https://www.notion.so/web3Torrent-FAQ-9f384d9dbadc4828aa81e14fcc360466',
+                'https://statechannels.notion.site/web3Torrent-FAQ-hyperspace-2df7fbdc03ce418e8c609d48453abdf7',
                 '_blank)'
               );
             }}
