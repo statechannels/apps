@@ -1,37 +1,23 @@
 FROM counterfactual/statechannels:0.5.13
+FROM  --platform=linux/amd64 node:12.16.3 
+ENV SC_ENV=production-hyperspace
+ENV NODE_ENV=production
+WORKDIR /statechannels/apps
 
-WORKDIR /statechannels/monorepo
+# TODO: This can be narrowed down to just the simple-hub package and it's dependencies
+COPY . /statechannels/apps/
 
-# ASSUMPTIONS
-#
-# - That ./packages/simple-hub has been built, so a lib directory exists
-# - That ./packages/nitro-protocol has been built, so the .json artifacts exist
-# - That ./packages/wire-format has been built, so a lib directory exists
 
-# INSTALL DEPENDENCIES
-COPY ./package.json /statechannels/monorepo/
-COPY ./packages/nitro-protocol/package.json packages/nitro-protocol/
-COPY ./packages/simple-hub/package.json packages/simple-hub/
-COPY ./packages/wire-format/package.json packages/wire-format/
-
-# Remove the devtools and jest-gas-reporter devDependencies from package.json files (avoid resolution)
-RUN sed -ie "/@statechannels\/devtools/d" package.json
-RUN sed -ie "/@statechannels\/jest-gas-reporter/d" package.json
-RUN sed -ie "/@statechannels\/devtools/d" **/*/package.json
-RUN sed -ie "/@statechannels\/jest-gas-reporter/d" **/*/package.json
 
 # Install production dependencies for simple-hub
-COPY ./yarn.lock /statechannels/monorepo/
-RUN yarn --production --prefer-offline
+RUN yarn global add typescript ts-node
+RUN yarn
 
-# COPY SOURCE
-WORKDIR /statechannels/monorepo
-COPY .env.* ./
-COPY ./packages/nitro-protocol/ packages/nitro-protocol/
-COPY ./packages/simple-hub/ packages/simple-hub/
-COPY ./packages/wire-format/ packages/wire-format/
 
-WORKDIR /statechannels/monorepo/packages/simple-hub
+
+
+WORKDIR /statechannels/apps/packages/simple-hub
+RUN yarn build
 
 # docker-entrypoint.sh starts a shell that execs the list of arguments in CMD
 # This works around the following heroku constraint:

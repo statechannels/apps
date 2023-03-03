@@ -1,16 +1,15 @@
 import AsyncLock from 'async-lock';
-import {Contract, ContractFactory, ethers, providers, BigNumber, utils} from 'ethers';
+import {Contract, ContractFactory, ethers, providers, BigNumber} from 'ethers';
 import {ContractArtifacts} from '@statechannels/nitro-protocol';
 import {cHubChainPK, cHubChainDestination} from '../constants';
 import {log} from '../logger';
-import {NonceManager} from '@ethersproject/experimental';
 import {TransactionResponse} from '@ethersproject/providers';
 import * as Sentry from '@sentry/node';
 
 const rpcEndpoint = process.env.RPC_ENDPOINT;
 const provider = new providers.JsonRpcProvider(rpcEndpoint);
 const walletWithProvider = new ethers.Wallet(cHubChainPK, provider);
-const nonceManager = new NonceManager(walletWithProvider);
+
 let ethAssetHolder: Contract = null;
 
 const lock = new AsyncLock();
@@ -41,6 +40,7 @@ async function fund(channelID: string, value: BigNumber): Promise<void> {
   }
 
   await lock.acquire(channelID, async () => {
+    console.log('SANITYTYUASDAS');
     const expectedHeld: BigNumber = await ethAssetHolder.holdings(channelID);
     if (expectedHeld.gte(value)) {
       return;
@@ -58,7 +58,6 @@ async function fund(channelID: string, value: BigNumber): Promise<void> {
       expectedHeld.toHexString(),
       value,
       {
-        gasPrice: utils.parseUnits('15', 'gwei'),
         value: value.sub(expectedHeld)
       }
     );
@@ -78,7 +77,7 @@ async function createEthAssetHolder() {
   try {
     ethAssetHolderFactory = await ContractFactory.fromSolidity(
       ContractArtifacts.EthAssetHolderArtifact,
-      nonceManager
+      walletWithProvider
     );
   } catch (err) {
     if (err.message.match('bytecode must be a valid hex string')) {
@@ -94,7 +93,7 @@ async function createEthAssetHolder() {
     {ETH_ASSET_HOLDER_ADDRESS: process.env.ETH_ASSET_HOLDER_ADDRESS},
     'Connected to eth asset holder'
   );
-
+  console.log(contract);
   return contract;
 }
 

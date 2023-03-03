@@ -24,14 +24,14 @@ import {
   PEER_TRUST
 } from '../constants';
 import {Message} from '@statechannels/client-api-schema';
-import {utils} from 'ethers';
+import {BigNumber, utils} from 'ethers';
 import {logger} from '../logger';
 import * as rxjs from 'rxjs';
 
 import {track} from '../segment-analytics';
 const hexZeroPad = utils.hexZeroPad;
 
-const bigNumberify = utils.bigNumberify;
+const bigNumberify = BigNumber.from;
 const log = logger.child({module: 'web3torrent-lib'});
 
 export * from './types';

@@ -21,29 +21,27 @@ const Welcome: React.FC<Props> = () => {
         <h2>WITH MICROPAYMENTS</h2>
       </div>
       <div className="subtitle">
-        <p>
-          <div className="actions-container">
-            <FormButton
-              className="button shadow"
-              name="download"
-              onClick={() => {
-                track('Sample Download Nav');
-                history.push(generateURL(preseededTorrentsUI[0]));
-              }}
-            >
-              Download a sample file
-            </FormButton>
-            <FormButton
-              name="download"
-              onClick={() => {
-                track('Upload Your Own Nav');
-                history.push(RoutePath.Upload);
-              }}
-            >
-              Upload your own file
-            </FormButton>
-          </div>
-        </p>
+        <div className="actions-container">
+          <FormButton
+            className="button shadow"
+            name="download"
+            onClick={() => {
+              track('Sample Download Nav');
+              history.push(generateURL(preseededTorrentsUI[0]));
+            }}
+          >
+            Download a sample file
+          </FormButton>
+          <FormButton
+            name="download"
+            onClick={() => {
+              track('Upload Your Own Nav');
+              history.push(RoutePath.Upload);
+            }}
+          >
+            Upload your own file
+          </FormButton>
+        </div>
       </div>
       <div className="subtitle">
         <p>
@@ -54,11 +52,15 @@ const Welcome: React.FC<Props> = () => {
           </a>{' '}
           client, and uses{' '}
           <a href="https://statechannels.org" target="_blank" rel="noopener noreferrer">
-            State Channels
+            State Channel
           </a>{' '}
-          technology to achieve seamless value transfer on the ethereum blockchain. Peers can share
-          files in a torrent swarm and downloaders make micropayments to uploaders for the data they
-          provide.
+          technology to achieve seamless value transfer on the Hyperspace FVM test net (connect your
+          wallet
+          <a href="https://chainlist.org/?search=hyperspace&testnets=true">
+            <em> HERE</em>
+          </a>
+          ). Peers can share files in a torrent swarm and downloaders make micropayments to
+          uploaders for the data they provide.
         </p>
       </div>
     </section>

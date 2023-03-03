@@ -1,7 +1,7 @@
 import MemoryChunkStore from 'memory-chunk-store';
 import fixtures from 'webtorrent-fixtures';
 import {ChannelState, peer} from '../../clients/payment-channel-client';
-import {utils} from 'ethers';
+import {BigNumber} from 'ethers';
 import {PaidStreamingWire} from '../types';
 import WebTorrentPaidStreamingClient from '../web3torrent-lib';
 
@@ -57,7 +57,7 @@ export function togglePeerByChannel(
 
 export const mockChannelState: ChannelState = {
   channelId: '0x0',
-  turnNum: utils.bigNumberify(0),
+  turnNum: BigNumber.from(0),
   status: 'running',
   challengeExpirationTime: '0x0',
   beneficiary: peer('0x0', '0x0', '0x0'),
