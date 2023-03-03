@@ -54,7 +54,7 @@ const Welcome: React.FC<Props> = () => {
           <a href="https://statechannels.org" target="_blank" rel="noopener noreferrer">
             State Channels
           </a>{' '}
-          technology to achieve seamless value transfer on the ethereum blockchain. Peers can share
+          technology to achieve seamless value transfer on the Hyperspace FVM test net. Peers can share
           files in a torrent swarm and downloaders make micropayments to uploaders for the data they
           provide.
         </p>
