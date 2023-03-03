@@ -52,7 +52,7 @@ const Welcome: React.FC<Props> = () => {
           </a>{' '}
           client, and uses{' '}
           <a href="https://statechannels.org" target="_blank" rel="noopener noreferrer">
-            State Channels
+            State Channel
           </a>{' '}
           technology to achieve seamless value transfer on the Hyperspace FVM test net. Peers can share
           files in a torrent swarm and downloaders make micropayments to uploaders for the data they
