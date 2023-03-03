@@ -193,7 +193,7 @@ const File: React.FC<Props> = props => {
             <p>
               <strong>How do I pay for the download?</strong>
               <br />
-              When you click "Start Download", you'll be asked to allocate an amount of ETH so
+              When you click "Start Download", you'll be asked to allocate an amount of tFIL so
               Web3Torrent can collect payments on your behalf and transfer those funds to peers who
               have pieces of the file . Unlike other systems, the payment is not upfront; instead,
               you pay as you download.
